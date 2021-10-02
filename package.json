@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/waelio/waelio-gun-server#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "gun": "^0.2020.1235",
     "gun-mongo": "^0.1.2",
