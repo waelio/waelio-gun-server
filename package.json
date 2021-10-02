@@ -25,8 +25,15 @@
   },
   "homepage": "https://github.com/waelio/waelio-gun-server#readme",
   "dependencies": {
+    "@adyen/api-library": "^9.1.0",
     "express": "^4.17.1",
-    "gun": "^0.8.9",
-    "gun-mongo": "^0.1.2"
+    "express-handlebars": "^5.3.4",
+    "gun": "^0.2020.1235",
+    "gun-mongo": "^0.1.2",
+    "morgan": "^1.10.0",
+    "uuidv4": "^6.2.12"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
   }
 }
