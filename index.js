@@ -66,3 +66,5 @@ const gun = new Gun({
 
 global.Gun = Gun;
 global.gun = gun;
+
+return console.log(`Server started on port ${port}`);
