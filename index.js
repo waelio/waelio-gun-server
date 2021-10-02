@@ -21,17 +21,28 @@ const corsOptions = {
     }
   }
 };
-app.use(cors(corsOptions));
+app.use(cors());
 
 const Gun = require('gun');
 app.use(Gun.serve);
-const port = process.env.OPENSHIFT_NODEJS_PORT || process.env.VCAP_APP_PORT || process.env.PORT || process.argv[2] || 8765;
+const port =
+  process.env.APP_PORT ||
+  process.env.OPENSHIFT_NODEJS_PORT ||
+  process.env.VCAP_APP_PORT ||
+  process.env.PORT ||
+  process.argv[2] ||
+  4500;
+
 const server = app.listen(port, console.log(`Server started on port ${port}`));
 
 const gun = new Gun({
-  file: 'data'
+  file: 'data.json',
   web: server,
-  peers: [],
+  peers: [
+    'http://localhost:9000/gun',
+    'https://waelio.herokuapp.com:9000/gun',
+    'https://gun.waelio.com:9000/gun'
+  ],
   mongo: process.env.MONGO_URL,
   verify: {
     check: (e) => {
