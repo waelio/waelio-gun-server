@@ -25,7 +25,7 @@ app.use(cors(corsOptions));
 
 const Gun = require('gun');
 app.use(Gun.serve);
-const port    = process.env.OPENSHIFT_NODEJS_PORT || process.env.VCAP_APP_PORT || process.env.PORT || process.argv[2] || 8765;
+const port = process.env.OPENSHIFT_NODEJS_PORT || process.env.VCAP_APP_PORT || process.env.PORT || process.argv[2] || 8765;
 const server = app.listen(port, console.log(`Server started on port ${port}`));
 
 const gun = new Gun({
